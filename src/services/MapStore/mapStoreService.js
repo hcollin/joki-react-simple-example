@@ -11,7 +11,7 @@ export default function createMapStoreService(jokiInstance, options={}) {
         switch(event.key) {
             case "get":
                 if(event.body === undefined) {
-                    return mapToObject(data);
+                    return new Map(data);
                 }
                 return data.has(event.body) ? data.get(event.body) : undefined;
             case "set":
@@ -25,7 +25,7 @@ export default function createMapStoreService(jokiInstance, options={}) {
                 }
                 break;
             case "getServiceState":
-                    return mapToObject(data);
+                    return new Map(data);
             default:
                 return;
         }
@@ -35,21 +35,12 @@ export default function createMapStoreService(jokiInstance, options={}) {
         data.clear();
     }
 
-    function mapToObject(myMap) {
-        return new Map(myMap);
-        // const obj = {};
-        // myMap.forEach((v, k) => {
-        //     obj[k] = v;
-        // });
-        // return obj;
-    }
-
     function triggerServiceUpdate() {
         joki.trigger({
             from: serviceId,
             key: "serviceUpdate",
             serviceUpdate: true,
-            body: mapToObject(data)
+            body: new Map(data)
         });
     }
 
