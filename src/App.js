@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import ValueTracker from './components/Values/ValueTracker';
+import ValueUpdater from './components/Values/ValueUpdater';
+
+import JOKI from './services/JOKI';
+
+// Send Service Initialization call
+JOKI.initServices();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Joki Example Project</h1>
+
+      <ValueTracker valueKey="foo" initialValue={0} />
+      <ValueUpdater valueKey="foo" />
+      <ValueTracker valueKey="bar" initialValue="beta" />
+      <ValueUpdater valueKey="bar" />
+
     </div>
   );
 }

@@ -1,0 +1,23 @@
+
+div.values {
+    padding: 1rem;
+    display: flex;
+
+    flex-direction: row;
+    
+}
+
+div.values label {
+    flex: 0 0 auto;
+    width: 150px;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0 1rem;
+    text-align: right;
+    font-weight: bold;
+}
+
+div.values p {
+    margin: 0;
+    padding: 0;
+}
