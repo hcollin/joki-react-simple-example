@@ -5,6 +5,7 @@ import ValueTracker from './components/Values/ValueTracker';
 import ValueUpdater from './components/Values/ValueUpdater';
 
 import JOKI from './services/JOKI';
+import Test from './components/Test';
 
 // Send Service Initialization call
 JOKI.initServices();
@@ -18,6 +19,8 @@ function App() {
       <ValueUpdater valueKey="foo" />
       <ValueTracker valueKey="bar" initialValue="beta" />
       <ValueUpdater valueKey="bar" />
+
+      <Test />
 
     </div>
   );
